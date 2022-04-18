@@ -66,6 +66,7 @@ export default {
       descriptions: [
         {
           id: "MLA741093357-1768858232",
+          text: "Lorem ipsum",
         },
       ],
       accepts_mercadopago: true,
