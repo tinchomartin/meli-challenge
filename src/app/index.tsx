@@ -81,15 +81,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-{
-  /* <Stack color="blackAlpha.700" direction="row" fontSize="sm" spacing={5}>
-                    <Text>Categorías</Text>
-                    <Text>Ofertas</Text>
-                    <Text>Historial</Text>
-                    <Text>Supermercado</Text>
-                    <Text>Moda</Text>
-                    <Text>Vender</Text>
-                    <Text>Ayuda</Text>
-                  </Stack> */
-}

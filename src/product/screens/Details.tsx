@@ -8,7 +8,7 @@ interface Props {
 }
 
 const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
-  return <div>{`<DetailsScreen /> para ${product.title}`}</div>;
+  return <div>para {product.title}</div>;
 };
 
 export default DetailsScreen;
