@@ -12,7 +12,7 @@ import Routes from "./routes";
 const App: React.FC = () => {
   return (
     <Stack>
-      <Box backgroundColor="primary.500" boxShadow="sm" paddingY={4}>
+      <Box backgroundColor="primary.500" boxShadow="sm" paddingY={1}>
         <Container maxW="container.xl">
           <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between">
@@ -29,7 +29,12 @@ const App: React.FC = () => {
                   padding={2}
                   width="100%"
                 >
-                  <Input paddingX={2} variant="unstyled" />
+                  <Input
+                    _placeholder={{opacity: "0.5"}}
+                    paddingX={2}
+                    placeholder="Buscar productos, marcas y mas..."
+                    variant="unstyled"
+                  />
                   <Icon as={AiOutlineSearch} color="gray.500" h={5} w={5} />
                 </Stack>
               </Stack>
@@ -73,6 +78,7 @@ const App: React.FC = () => {
           </Stack>
         </Container>
       </Box>
+
       <Container alignSelf="center" maxW="container.xl" padding={0}>
         <Routes />
       </Container>

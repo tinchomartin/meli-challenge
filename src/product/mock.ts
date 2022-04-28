@@ -22,7 +22,7 @@ export default {
       listing_type_id: "gold_special",
       start_time: "2018-08-04T02:27:28.000Z",
       stop_time: "2038-07-29T04:00:00.000Z",
-      condition: "new",
+      condition: "Nuevo",
       permalink:
         "https://articulo.mercadolibre.com.ar/MLA-741093357-peluche-stitch-angel-lilo-1-metro-100cm-reales-gigante-_JM",
       thumbnail_id: "978173-MLA32582347639_102019",
