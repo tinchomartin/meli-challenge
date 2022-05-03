@@ -68,7 +68,7 @@ const App: React.FC = () => {
                   <Text>Ayuda</Text>
                 </Stack>
               </Stack>
-              <Stack direction="row" fontSize="sm" lineSpacing={6}>
+              <Stack direction="row" fontSize="sm" spacing={6}>
                 <Text>Creá tu cuenta</Text>
                 <Text>Ingresá</Text>
                 <Text>Mis compras</Text>

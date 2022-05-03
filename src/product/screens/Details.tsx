@@ -1,6 +1,7 @@
 import {Box, Stack, Container, Image, Text, StackDivider, Heading, Icon} from "@chakra-ui/react";
 import React, {useState} from "react";
 import {FiHeart} from "react-icons/fi";
+import {AiFillStar} from "react-icons/ai";
 
 import {Product} from "../types";
 import mock from "../mock";
@@ -13,14 +14,16 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
   const [fullImg, setFullImg] = React.useState<string>("");
   const [favColor, setFavColor] = React.useState<string>("transparent");
 
-  const handleMouseOver = (e) => {
-    setFullImg(e.target.src);
+  const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
+    const {src} = e.target as HTMLImageElement;
+
+    setFullImg(src);
   };
 
   return (
-    <Box backgroundColor="white" marginTop={0} maxW="container.xl" padding={4}>
+    <Box backgroundColor="white" maxW="container.xl" padding={4}>
       <Stack direction="row">
-        <Stack direction="row" spacing={12}>
+        <Stack direction="row">
           <Stack>
             {product.pictures &&
               product.pictures.map((img) => {
@@ -46,9 +49,16 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                 );
               })}
           </Stack>
-          <Box height="auto" width="410px">
+          <Box
+            display="flex"
+            height="auto"
+            margin={["24px 0 0 0 !important"]}
+            padding="16px"
+            width="700px"
+          >
             <Image
               height="auto"
+              maxH="468px"
               objectFit="contain"
               src={fullImg ? fullImg : product.pictures[0].secure_url}
               width="100%"
@@ -56,7 +66,13 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
           </Box>
         </Stack>
 
-        <Stack borderColor="gray.300" borderRadius="md" borderWidth={1} padding={4}>
+        <Stack
+          borderColor="gray.300"
+          borderRadius="md"
+          borderWidth={1}
+          margin={["16px 0 0 48px !important"]}
+          padding="24px 32px 24px 16px"
+        >
           <Stack color="blackAlpha.600" direction="row" divider={<StackDivider />}>
             <Text fontSize="sm">{product.condition}</Text>
 
@@ -79,6 +95,35 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                   : setFavColor("transparent")
               }
             />
+          </Stack>
+          <Stack alignItems="center" cursor="pointer" direction="row" spacing={0.5}>
+            <Icon as={AiFillStar} color="secondary.400" fill="secondary.400" fontSize="md" />
+            <Icon as={AiFillStar} color="secondary.400" fill="secondary.400" fontSize="md" />
+            <Icon as={AiFillStar} color="secondary.400" fill="secondary.400" fontSize="md" />
+            <Icon as={AiFillStar} color="secondary.400" fill="secondary.400" fontSize="md" />
+            <Icon as={AiFillStar} color="secondary.400" fill="secondary.400" fontSize="md" />
+
+            <Text color="blackAlpha.600" fontSize="sm" paddingLeft={1.5}>
+              4 opiniones
+            </Text>
+          </Stack>
+          <Stack spacing={-2}>
+            <Text fontSize="4xl" fontWeight="light">
+              $ {product.price.toLocaleString()}
+            </Text>
+
+            <Text fontSize="lg" fontWeight="normal">
+              en 1x {product.price.toLocaleString()}
+            </Text>
+            <Text
+              color="secondary.500"
+              cursor="pointer"
+              fontSize="sm"
+              fontWeight="normal"
+              paddingTop={2}
+            >
+              Ver medios de pago
+            </Text>
           </Stack>
         </Stack>
       </Stack>
