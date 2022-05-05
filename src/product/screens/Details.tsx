@@ -2,6 +2,8 @@ import {Box, Stack, Container, Image, Text, StackDivider, Heading, Icon} from "@
 import React, {useState} from "react";
 import {FiHeart} from "react-icons/fi";
 import {AiFillStar} from "react-icons/ai";
+import {FaShippingFast} from "react-icons/fa";
+import {IoReturnDownBackOutline} from "react-icons/io5";
 
 import {Product} from "../types";
 import mock from "../mock";
@@ -124,6 +126,35 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
             >
               Ver medios de pago
             </Text>
+          </Stack>
+          <Stack alignItems="start" direction="row" marginTop={["20px !important"]}>
+            <Icon as={FaShippingFast} color="green.500" fontSize="xl" />
+            <Stack spacing={1}>
+              <Text color="green.400" lineHeight="1.3">
+                Llega gratis{" "}
+                <Text as="span" fontWeight="semibold">
+                  mañana
+                </Text>
+              </Text>
+              <Text color="secondary.500" cursor="pointer" fontSize="sm">
+                Ver mas formas de pago
+              </Text>
+            </Stack>
+          </Stack>
+
+          <Stack alignItems="start" direction="row" marginTop={["20px !important"]}>
+            <Icon as={IoReturnDownBackOutline} color="green.400" fontSize="xl" />
+            <Stack spacing={1}>
+              <Text color="green.500" lineHeight="1.3">
+                Devolución gratis
+              </Text>
+              <Text color="blackAlpha.700" fontSize="sm">
+                Tenés 30 días desde que lo recibís.
+              </Text>
+              <Text color="secondary.500" cursor="pointer" fontSize="sm">
+                Conocer más
+              </Text>
+            </Stack>
           </Stack>
         </Stack>
       </Stack>
