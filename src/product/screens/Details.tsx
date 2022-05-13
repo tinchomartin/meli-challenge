@@ -24,11 +24,31 @@ import mock from "../mock";
 interface Props {
   product: Product;
 }
+
+interface BeforeProps {
+  content: `""`;
+  borderLeft: "2px solid";
+  borderLeftColor: "secondary.400";
+  bottom: "5px";
+  top: "5px";
+  left: "2.5px";
+  position: "absolute";
+}
+
 const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
   const [fullImg, setFullImg] = React.useState<string>("");
   const [favColor, setFavColor] = React.useState<string>("transparent");
   const [showList, setShowList] = React.useState<string>("hidden" || undefined);
   const [clickedQuantity, setclickedQuantity] = React.useState<string>("1 unidad");
+  const quantity: string[] = [
+    "1 unidad",
+    "2 unidades",
+    "3 unidades",
+    "4 unidades",
+    "5 unidades",
+    "6 unidades",
+    "Mas de 6 unidades",
+  ];
 
   const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
     const {src} = e.target as HTMLImageElement;
@@ -187,99 +207,47 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
             >
               <Text fontSize="lg">Cantidad: </Text>
               <Stack>
-                <Text>{clickedQuantity}</Text>
-                <UnorderedList listStyleType="none" visibility={showList}>
-                  <ListItem
-                    border="none"
-                    boxShadow="sm"
-                    cursor="Pointer"
-                    value="option1"
-                    onClick={() => {
-                      setclickedQuantity("1 unidad");
-                      setShowList("hidden");
-                    }}
-                  >
-                    1 unidad
-                  </ListItem>
-                  <ListItem
-                    border="none"
-                    boxShadow="sm"
-                    cursor="Pointer"
-                    value="option2"
-                    onClick={() => {
-                      setclickedQuantity("2 unidades");
-                      setShowList("hidden");
-                    }}
-                  >
-                    2 unidades
-                  </ListItem>
-                  <ListItem
-                    border="none"
-                    boxShadow="sm"
-                    cursor="Pointer"
-                    value="option3"
-                    onClick={() => {
-                      setclickedQuantity("3 unidades");
-                      setShowList("hidden");
-                    }}
-                  >
-                    3 unidades
-                  </ListItem>
-                  <ListItem
-                    border="none"
-                    boxShadow="sm"
-                    cursor="pointer"
-                    value="option4"
-                    onClick={() => {
-                      setclickedQuantity("4 unidades");
-
-                      setShowList("hidden");
-                    }}
-                  >
-                    4 unidades
-                  </ListItem>
-                  <ListItem
-                    border="none"
-                    boxShadow="sm"
-                    cursor="pointer"
-                    value="option5"
-                    onClick={() => {
-                      setclickedQuantity("5 unidades");
-                      setShowList("hidden");
-                    }}
-                  >
-                    5 unidades
-                  </ListItem>
-                  <ListItem
-                    border="none"
-                    boxShadow="sm"
-                    cursor="pointer"
-                    value="option6"
-                    onClick={() => {
-                      setclickedQuantity("6 unidades");
-
-                      setShowList("hidden");
-                    }}
-                  >
-                    6 unidades
-                  </ListItem>
-
-                  <ListItem
-                    border="none"
-                    boxShadow="sm"
-                    cursor="pointer"
-                    value="option7"
-                    onClick={() => {
-                      setclickedQuantity("Mas de 6 unidades");
-
-                      setShowList("hidden");
-                    }}
-                  >
-                    Mas de 6 unidades
-                  </ListItem>
-                </UnorderedList>{" "}
+                <Stack alignItems="center" direction="row">
+                  <Text fontWeight="semibold">{clickedQuantity} </Text>
+                  <Icon as={BiChevronDown} color="secondary.400" />
+                </Stack>
+                <Box boxShadow="xl" visibility={showList}>
+                  <UnorderedList fontSize="lg" listStyleType="none" margin="0" whiteSpace="nowrap">
+                    {quantity &&
+                      quantity.map((item, i) => {
+                        return (
+                          <ListItem
+                            key={i}
+                            _before={{
+                              content: `""`,
+                              borderLeft: "2px solid",
+                              borderLeftColor: "secondary.400",
+                              bottom: "5px",
+                              top: "5px",
+                              left: "2.5px",
+                              position: "absolute",
+                            }}
+                            _hover={{backgroundColor: "blackAlpha.100"}}
+                            border="none"
+                            cursor="Pointer"
+                            lineHeight="18px"
+                            paddingX="16px"
+                            paddingY="18px"
+                            position="relative"
+                            textAlign="left"
+                            value="option1"
+                            onClick={() => {
+                              setclickedQuantity(item);
+                              setShowList("hidden");
+                            }}
+                          >
+                            {item}
+                          </ListItem>
+                        );
+                      })}
+                  </UnorderedList>
+                </Box>
               </Stack>
-              <Icon as={BiChevronDown} />
             </Stack>
           </Stack>
         </Stack>
