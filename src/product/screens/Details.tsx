@@ -1,17 +1,15 @@
 import {
   Box,
   Stack,
-  Select,
   Image,
   Text,
   StackDivider,
   Heading,
   Icon,
   UnorderedList,
-  List,
   ListItem,
 } from "@chakra-ui/react";
-import React, {useState} from "react";
+import React, {useState, CSSPropertyVisibility} from "react";
 import {FiHeart} from "react-icons/fi";
 import {AiFillStar} from "react-icons/ai";
 import {FaShippingFast} from "react-icons/fa";
@@ -26,19 +24,19 @@ interface Props {
 }
 
 interface BeforeProps {
-  content: `""`;
-  borderLeft: "2px solid";
-  borderLeftColor: "secondary.400";
-  bottom: "5px";
-  top: "5px";
-  left: "2.5px";
-  position: "absolute";
+  content: string;
+  borderLeft: string;
+  borderLeftColor: string;
+  bottom: string;
+  top: string;
+  left: string;
+  position: string;
 }
 
 const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
   const [fullImg, setFullImg] = React.useState<string>("");
   const [favColor, setFavColor] = React.useState<string>("transparent");
-  const [showList, setShowList] = React.useState<string>("hidden" || undefined);
+  const [showList, setShowList] = React.useState<CSSPropertyVisibility>("hidden");
   const [clickedQuantity, setclickedQuantity] = React.useState<string>("1 unidad");
   const quantity: string[] = [
     "1 unidad",
@@ -49,6 +47,13 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
     "6 unidades",
     "Mas de 6 unidades",
   ];
+
+  const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    const {id} = e.target as HTMLLIElement;
+
+    setclickedQuantity(id);
+    setShowList("hidden");
+  };
 
   const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
     const {src} = e.target as HTMLImageElement;
@@ -218,28 +223,29 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                         return (
                           <ListItem
                             key={i}
-                            _before={{
-                              content: `""`,
-                              borderLeft: "2px solid",
-                              borderLeftColor: "secondary.400",
-                              bottom: "5px",
-                              top: "5px",
-                              left: "2.5px",
-                              position: "absolute",
-                            }}
+                            _before={
+                              clickedQuantity === item
+                                ? {
+                                    content: `""`,
+                                    borderLeft: "2px solid",
+                                    borderLeftColor: "secondary.400",
+                                    bottom: "5px",
+                                    top: "5px",
+                                    left: "2.5px",
+                                    position: "absolute",
+                                  }
+                                : {content: `""`}
+                            }
                             _hover={{backgroundColor: "blackAlpha.100"}}
                             border="none"
                             cursor="Pointer"
+                            id={item}
                             lineHeight="18px"
                             paddingX="16px"
                             paddingY="18px"
                             position="relative"
                             textAlign="left"
-                            value="option1"
-                            onClick={() => {
-                              setclickedQuantity(item);
-                              setShowList("hidden");
-                            }}
+                            onClick={handleClick}
                           >
                             {item}
                           </ListItem>
