@@ -9,7 +9,7 @@ import {
   UnorderedList,
   ListItem,
 } from "@chakra-ui/react";
-import React, {useState, CSSPropertyVisibility} from "react";
+import React, {useState} from "react";
 import {FiHeart} from "react-icons/fi";
 import {AiFillStar} from "react-icons/ai";
 import {FaShippingFast} from "react-icons/fa";
@@ -23,20 +23,10 @@ interface Props {
   product: Product;
 }
 
-interface BeforeProps {
-  content: string;
-  borderLeft: string;
-  borderLeftColor: string;
-  bottom: string;
-  top: string;
-  left: string;
-  position: string;
-}
-
 const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
   const [fullImg, setFullImg] = React.useState<string>("");
   const [favColor, setFavColor] = React.useState<string>("transparent");
-  const [showList, setShowList] = React.useState<CSSPropertyVisibility>("hidden");
+  const [showList, setShowList] = React.useState<string>("hidden");
   const [clickedQuantity, setclickedQuantity] = React.useState<string>("1 unidad");
   const quantity: string[] = [
     "1 unidad",
@@ -52,6 +42,7 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
     const {id} = e.target as HTMLLIElement;
 
     setclickedQuantity(id);
+
     setShowList("hidden");
   };
 
@@ -216,6 +207,7 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                   <Text fontWeight="semibold">{clickedQuantity} </Text>
                   <Icon as={BiChevronDown} color="secondary.400" />
                 </Stack>
+                {/* @ts-ignore */}
                 <Box boxShadow="xl" visibility={showList}>
                   <UnorderedList fontSize="lg" listStyleType="none" margin="0" whiteSpace="nowrap">
                     {quantity &&
