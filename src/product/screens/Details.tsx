@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Stack,
   Image,
   Text,
@@ -10,11 +11,12 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import React, {useState} from "react";
-import {FiHeart} from "react-icons/fi";
+import {FiHeart, FiTruck} from "react-icons/fi";
 import {AiFillStar} from "react-icons/ai";
 import {FaShippingFast} from "react-icons/fa";
 import {IoReturnDownBackOutline} from "react-icons/io5";
-import {BiChevronDown} from "react-icons/bi";
+import {BiChevronDown, BiTrophy} from "react-icons/bi";
+import {HiOutlineShieldCheck} from "react-icons/hi";
 
 import {Product} from "../types";
 import mock from "../mock";
@@ -203,13 +205,24 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
             >
               <Text fontSize="lg">Cantidad: </Text>
               <Stack>
-                <Stack alignItems="center" direction="row">
+                <Stack alignItems="center" direction="row" spacing="1px" whiteSpace="nowrap">
                   <Text fontWeight="semibold">{clickedQuantity} </Text>
                   <Icon as={BiChevronDown} color="secondary.400" />
+                  <Text color="blackAlpha.700" fontSize="sm">
+                    `({product.initial_quantity} disponibles)`
+                  </Text>
                 </Stack>
                 {/* @ts-ignore */}
-                <Box boxShadow="xl" visibility={showList}>
-                  <UnorderedList fontSize="lg" listStyleType="none" margin="0" whiteSpace="nowrap">
+                <Box boxShadow="2xl" visibility={showList}>
+                  <UnorderedList
+                    backgroundColor="white"
+                    fontSize="lg"
+                    listStyleType="none"
+                    margin="0"
+                    position="absolute"
+                    whiteSpace="nowrap"
+                    zIndex="9999"
+                  >
                     {quantity &&
                       quantity.map((item, i) => {
                         return (
@@ -226,7 +239,7 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                                     left: "2.5px",
                                     position: "absolute",
                                   }
-                                : {content: `""`}
+                                : {content: `""`, position: "absolute"}
                             }
                             _hover={{backgroundColor: "blackAlpha.100"}}
                             border="none"
@@ -245,6 +258,115 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                       })}
                   </UnorderedList>
                 </Box>
+              </Stack>
+            </Stack>
+
+            <Stack marginTop="20px !important" spacing={2}>
+              <Stack direction="row">
+                <Button
+                  _active={{backgroundColor: "secondary.800"}}
+                  _focus={{border: "none"}}
+                  _hover={{backgroundColor: "secondary.600"}}
+                  backgroundColor="secondary.400"
+                  color="white"
+                  flex="1"
+                  size="lg"
+                >
+                  Comprar ahora
+                </Button>
+              </Stack>
+              <Stack direction="row">
+                <Button
+                  _active={{backgroundColor: "secondary.200"}}
+                  _focus={{border: "none"}}
+                  _hover={{backgroundColor: "secondary.100"}}
+                  backgroundColor="secondary.50"
+                  color="secondary.400"
+                  flex="1"
+                  variants="ghost"
+                >
+                  Agregar al carrito
+                </Button>
+              </Stack>
+
+              <Stack
+                _before={{
+                  backgroundColor: "white",
+                  borderLeft: ".5px solid rgba(0,0,0,.1)",
+                  borderTop: ".5px solid rgba(0,0,0,.1)",
+                  height: "12px",
+                  position: "absolute",
+                  top: "-6px",
+                  transform: "rotate(45deg)",
+                  width: "12px",
+                  content: `""`,
+                }}
+                alignItems="center"
+                border=".5px solid rgba(0,0,0,.1)"
+                borderRadius="6px"
+                boxShadow="0 8px 16px 0 rgb(0 0 0 / 10%), 0 0 6px 0 rgb(0 0 0 / 10%)"
+                direction="row"
+                justifyContent="space-around"
+                marginTop="15px !important"
+                padding="15px"
+                position="relative"
+              >
+                <Stack
+                  borderColor="green.500"
+                  borderRadius="50%"
+                  borderWidth="2px"
+                  marginRight="12px"
+                  padding="5px"
+                >
+                  <Icon as={FiTruck} color="green.500" fontSize="lg" fontWeight="bold !important" />
+                </Stack>
+                <Stack>
+                  <Text flex="1" fontSize="14px" fontWeight="semibold">
+                    Agregá y recibí gratis los productos de este vendedor en tu carrito.
+                  </Text>
+                </Stack>
+              </Stack>
+              <Stack direction="row" flex="1">
+                <UnorderedList color="blackAlpha.700" margin="0" spacing={2} styleType="none">
+                  <ListItem display="flex" justifyItems="flex-start">
+                    <Icon
+                      as={HiOutlineShieldCheck}
+                      fontSize="lg"
+                      fontWeight="bold !important"
+                      marginRight={2}
+                    />
+                    <Text fontSize="sm" fontWeight="normal">
+                      <Text
+                        _hover={{color: "secondary.700"}}
+                        as="span"
+                        color="secondary.500"
+                        cursor="pointer"
+                      >
+                        Compra Protegida,{" "}
+                      </Text>
+                      recibí el producto que esperabas o te devolvemos tu dinero.
+                    </Text>
+                  </ListItem>
+                  <ListItem display="flex" justifyItems="flex-start">
+                    <Icon
+                      as={BiTrophy}
+                      fontSize="lg"
+                      fontWeight="bold !important"
+                      marginRight={2}
+                    />
+                    <Text fontSize="sm" fontWeight="normal">
+                      <Text
+                        _hover={{color: "secondary.700"}}
+                        as="span"
+                        color="secondary.500"
+                        cursor="pointer"
+                      >
+                        Mercado Puntos.{" "}
+                      </Text>
+                      Sumás 4 puntos.
+                    </Text>
+                  </ListItem>
+                </UnorderedList>
               </Stack>
             </Stack>
           </Stack>
