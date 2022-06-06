@@ -46,7 +46,8 @@ const ProductDetails = (props: any) => {
       borderColor="gray.300"
       borderRadius="md"
       borderWidth={1}
-      margin={["16px 0 0 48px !important"]}
+      flex="1"
+      margin={["16px 18px 0 48px !important"]}
       padding="24px 32px 24px 16px"
     >
       <Stack color="blackAlpha.600" direction="row" divider={<StackDivider />}>
@@ -87,7 +88,7 @@ const ProductDetails = (props: any) => {
         </Text>
 
         <Text fontSize="lg" fontWeight="normal">
-          en 1x {product.price.toLocaleString()}
+          en 1x $ {product.price.toLocaleString()}
         </Text>
         <Text
           color="secondary.500"

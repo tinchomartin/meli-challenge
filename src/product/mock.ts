@@ -415,6 +415,33 @@ export default {
       health: 0.88,
       catalog_listing: false,
       channels: ["marketplace"],
+      sellerRecomendations: [
+        {
+          image: "https://http2.mlstatic.com/D_NQ_NP_2X_600144-MLA49547774253_042022-F.webp",
+          text: "Peluche Stitch 30cm Importado Lilo Y Stitch Hermosos Suaves",
+          price: 3433,
+        },
+        {
+          image: "https://http2.mlstatic.com/D_NQ_NP_2X_936630-MLA48424806895_122021-F.webp",
+          price: 2543,
+          text: "Peluche Stitch 45cm Importado Lilo Y Stitch",
+        },
+        {
+          image: "https://http2.mlstatic.com/D_NQ_NP_2X_603500-MLA47487564153_092021-F.webp",
+          price: 1433,
+          text: "Peluche Pokemon Varios Personajes Principales Pikachu 22cm",
+        },
+        {
+          image: "https://http2.mlstatic.com/D_NQ_NP_2X_965973-MLA46800142342_072021-F.webp",
+          price: 5432,
+          text: "Peluche Muñeco Sonic 30cm Importado",
+        },
+        {
+          image: "https://http2.mlstatic.com/D_NQ_NP_2X_900148-MLA48693269062_122021-F.webp",
+          price: 2432,
+          text: "Peluches Poppy Playtime Huggy Wuggy//kissy Missy 28cm Muñeco",
+        },
+      ],
     };
   },
 };
