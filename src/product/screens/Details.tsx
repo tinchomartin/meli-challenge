@@ -5,6 +5,7 @@ import {Product} from "../types";
 import mock from "../mock";
 import ProductDetails from "../../components/ProductDetails";
 import SellerPublications from "../../components/SellerPublications";
+import ProductDescription from "../../components/ProductDescription";
 
 interface Props {
   product: Product;
@@ -70,6 +71,7 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
           </Stack>
 
           <SellerPublications publications={product.sellerRecomendations} />
+          <ProductDescription description={product.attributes} />
         </Stack>
       </Stack>
       <Stack>

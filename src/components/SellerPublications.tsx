@@ -1,16 +1,26 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import {Box, Stack, Text, Image} from "@chakra-ui/react";
 import {Swiper, SwiperSlide} from "swiper/react";
-import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import {Navigation} from "swiper";
 
+import "swiper/css";
+import {swiperBtn} from "./../../style.module.css";
+
 const SellerPublications = (props) => {
   const {publications} = props;
 
+  useEffect(() => {
+    const swipperPrev = document.querySelector(".swiper-button-prev");
+    const swipperNext = document.querySelector(".swiper-button-next");
+
+    swipperPrev?.classList.add(swiperBtn);
+    swipperNext?.classList.add(swiperBtn);
+  }, []);
+
   return (
-    <Stack marginLeft="30px">
+    <Stack marginBottom="30px" marginLeft="30px" marginTop="30px" spacing={5}>
       <Stack direction="row">
         <Text as="h2" fontSize="2xl" fontWeight="normal">
           Publicaciones del vendedor
@@ -69,6 +79,11 @@ const SellerPublications = (props) => {
               );
             })}
         </Swiper>
+      </Stack>
+      <Stack>
+        <Text color="secondary.500" cursor="pointer" fontSize="sm">
+          Ver mas publicaciones del vendedor
+        </Text>
       </Stack>
     </Stack>
   );

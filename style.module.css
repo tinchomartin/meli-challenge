@@ -1,0 +1,16 @@
+.swiperBtn{
+    width: 64px;
+    height: 64px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 19%);
+}
+.swiperBtn::after{
+    font-size: 24px;
+}
+
+.swiperBtn:hover{
+
+    box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 10%);
+}
