@@ -7,8 +7,6 @@ import {Qa} from "./Qa";
 const ProductDescription = (props) => {
   const {description} = props;
 
-  console.log(description);
-
   return (
     <Stack marginLeft="30px" spacing={20}>
       <Stack divider={<StackDivider borderColor="gray.300" />} marginTop="30px">

@@ -1,7 +1,19 @@
-import React from "react";
-import {Stack, Text, UnorderedList, ListItem} from "@chakra-ui/react";
+import React, {useState} from "react";
+import {Stack, Text, UnorderedList, ListItem, Input, Button, FormControl} from "@chakra-ui/react";
 
-export const Qa = () => {
+export function Qa() {
+  const handleClick = () => {
+    setAnswer((prevState) => [...prevState, message]);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setMessage(e.target.value);
+  };
+
+  const [message, setMessage] = useState<string>("");
+  const [answer, setAnswer] = useState<string[]>([]);
+
   return (
     <Stack>
       <Text as="h2" fontSize="2xl" fontWeight="normal">
@@ -86,6 +98,87 @@ export const Qa = () => {
           </ListItem>
         </UnorderedList>
       </Stack>
+      <Stack>
+        <Text as="h3" fontSize="lg" fontWeight="semibold">
+          Preguntale al vendedor
+        </Text>
+        <FormControl>
+          <Stack direction="row">
+            <Input
+              _placeholder={{opacity: 0.7}}
+              fontSize="16px"
+              placeholder="Escribí tu pregunta..."
+              size="lg"
+              onChange={handleChange}
+            />
+            <Button
+              _active={{backgroundColor: "secondary.800"}}
+              _focus={{border: "none"}}
+              _hover={{backgroundColor: "secondary.600"}}
+              backgroundColor="secondary.400"
+              color="white"
+              padding="0 24px "
+              size="lg"
+              onClick={handleClick}
+            >
+              Preguntar
+            </Button>
+          </Stack>
+        </FormControl>
+
+        <Text as="h3" fontSize="lg" fontWeight="semibold">
+          Últimas realizadas
+        </Text>
+        <Stack spacing={21}>
+          {answer.length > 0 &&
+            answer
+
+              .map((item, i) => {
+                return <Text key={i}>{item}</Text>;
+              })
+              .reverse()}
+
+          <Text>
+            Hola tienen disponible el azul? Cómo elijo esa opción? O se lo pido una vez hecha la
+            compra?
+          </Text>
+          <Text
+            _before={{
+              fontSize: "7px",
+              marginRight: "7px",
+              marginLeft: "10px",
+              verticalAlign: "text-top",
+              borderLeft: "solid 1px gray",
+              borderBottom: "solid 1px gray",
+              content: `"\\00a0 \\00a0 \\00a0 \\00a0 \\00a0"`,
+            }}
+            opacity="0.8"
+          >
+            Hola. Si realizas la compra y luego lo coordinamos.
+            <Text as="span" marginLeft="7px">
+              21/06/2022
+            </Text>
+          </Text>
+          <Text>Hola. El precio de la publicación es por los dos muñecos?</Text>
+          <Text
+            _before={{
+              fontSize: "7px",
+              marginRight: "7px",
+              marginLeft: "10px",
+              verticalAlign: "text-top",
+              borderLeft: "solid 1px gray",
+              borderBottom: "solid 1px gray",
+              content: `"\\00a0 \\00a0 \\00a0 \\00a0 \\00a0"`,
+            }}
+            opacity="0.8"
+          >
+            Hola. El precio es por unidad.
+            <Text as="span" marginLeft="7px">
+              11/05/2022
+            </Text>
+          </Text>
+        </Stack>
+      </Stack>
     </Stack>
   );
-};
+}
