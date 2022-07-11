@@ -1,18 +1,30 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Stack, Text, UnorderedList, ListItem, Input, Button, FormControl} from "@chakra-ui/react";
 
 export function Qa() {
-  const handleClick = () => {
-    setAnswer((prevState) => [...prevState, message]);
-  };
+  const [arrQuestion, setarrQuestion] = useState<string[]>([]);
+  const [message, setMessage] = useState<string>("");
+
+  useEffect(() => {
+    const storageQuestion = localStorage.getItem("questionStorage");
+
+    setarrQuestion(JSON.parse(storageQuestion));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("questionStorage", JSON.stringify(arrQuestion));
+  }, [arrQuestion]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setMessage(e.target.value);
   };
 
-  const [message, setMessage] = useState<string>("");
-  const [answer, setAnswer] = useState<string[]>([]);
+  const handleClick = () => {
+    if (message) {
+      setarrQuestion([...arrQuestion, message]);
+    }
+  };
 
   return (
     <Stack>
@@ -130,9 +142,8 @@ export function Qa() {
           Últimas realizadas
         </Text>
         <Stack spacing={21}>
-          {answer.length > 0 &&
-            answer
-
+          {arrQuestion.length > 0 &&
+            arrQuestion
               .map((item, i) => {
                 return <Text key={i}>{item}</Text>;
               })
