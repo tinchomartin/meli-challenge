@@ -101,10 +101,10 @@ const ProductDetails = (props: any) => {
         </Text>
       </Stack>
       <Stack alignItems="start" direction="row" marginTop={["20px !important"]}>
-        <Icon as={FaShippingFast} color="green.500" fontSize="xl" />
+        <Icon as={FaShippingFast} color="#00a650" fontSize="xl" />
         <Stack spacing={1}>
-          <Text color="green.400" lineHeight="1.3">
-            Llega gratis{" "}
+          <Text color="#00a650" lineHeight="1.3">
+            Llega gratis {""}
             <Text as="span" fontWeight="semibold">
               mañana
             </Text>
@@ -116,9 +116,9 @@ const ProductDetails = (props: any) => {
       </Stack>
 
       <Stack alignItems="start" direction="row" marginTop={["20px !important"]}>
-        <Icon as={IoReturnDownBackOutline} color="green.400" fontSize="xl" />
+        <Icon as={IoReturnDownBackOutline} color="#00a650" fontSize="xl" />
         <Stack spacing={1}>
-          <Text color="green.400" lineHeight="1.3">
+          <Text color="#00a650" lineHeight="1.3">
             Devolución gratis
           </Text>
           <Text color="blackAlpha.700" fontSize="sm">
@@ -251,13 +251,13 @@ const ProductDetails = (props: any) => {
             position="relative"
           >
             <Stack
-              borderColor="green.500"
+              borderColor="#00a650"
               borderRadius="50%"
               borderWidth="2px"
               marginRight="12px"
               padding="5px"
             >
-              <Icon as={FiTruck} color="green.500" fontSize="lg" fontWeight="bold !important" />
+              <Icon as={FiTruck} color="#00a650" fontSize="lg" fontWeight="bold !important" />
             </Stack>
             <Stack>
               <Text flex="1" fontSize="14px" fontWeight="semibold">
