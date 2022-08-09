@@ -1,7 +1,10 @@
 import React, {CSSProperties} from "react";
-import {Stack, Text, Icon, UnorderedList, ListItem} from "@chakra-ui/react";
+import {Stack, Text, Icon, UnorderedList, ListItem, StackDivider, Box} from "@chakra-ui/react";
 import {GoLocation} from "react-icons/go";
-import {IoMedalOutline} from "react-icons/io5";
+import {IoMedalOutline, IoChatboxOutline} from "react-icons/io5";
+import {BsStopwatch} from "react-icons/bs";
+import {HiCheckCircle} from "react-icons/hi";
+
 const SellerInformation = () => {
   const ListProps: CSS.Properties = {
     borderLeft: "6px white solid",
@@ -67,6 +70,41 @@ const SellerInformation = () => {
         <ListItem backgroundColor="#fffcda" style={ListProps} />
         <ListItem backgroundColor="#39b54a" height="12px !important" style={ListProps} />
       </UnorderedList>
+
+      <Stack
+        direction="row"
+        divider={<StackDivider />}
+        fontSize="2xl"
+        marginTop="20px !important"
+        textAlign="center"
+      >
+        <Stack width="33%">
+          <Text lineHeight="1">3000</Text>
+          <Text fontSize="xs" fontWeight="light">
+            Ventas en los últimos 60 días
+          </Text>
+        </Stack>
+
+        <Stack position="relative" width="33%">
+          <Icon alignSelf="center" as={IoChatboxOutline} />
+
+          <Icon as={HiCheckCircle} color="#00a650" left="35px" position="absolute" />
+
+          <Text fontSize="xs" fontWeight="light">
+            Brinda buena atención
+          </Text>
+        </Stack>
+        <Stack position="relative" width="33%">
+          <Icon alignSelf="center" as={BsStopwatch} />
+          <Icon as={HiCheckCircle} color="#00a650" left="53px" position="absolute" top="1px" />
+          <Text fontSize="xs" fontWeight="light">
+            Despacha sus productos a tiempo
+          </Text>
+        </Stack>
+      </Stack>
+      <Text color="secondary.500" cursor="pointer" fontSize="sm">
+        Ver más datos de este vendedor
+      </Text>
     </Stack>
   );
 };
