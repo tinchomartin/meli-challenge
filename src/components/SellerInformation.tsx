@@ -102,7 +102,13 @@ const SellerInformation = () => {
           </Text>
         </Stack>
       </Stack>
-      <Text color="secondary.500" cursor="pointer" fontSize="sm">
+      <Text
+        _hover={{color: "secondary.700"}}
+        as="span"
+        color="secondary.500"
+        cursor="pointer"
+        fontSize="sm"
+      >
         Ver más datos de este vendedor
       </Text>
     </Stack>
