@@ -6,7 +6,7 @@ export function Qa() {
   const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
-    const storageQuestion = localStorage.getItem("questionStorage");
+    const storageQuestion: any = localStorage.getItem("questionStorage");
 
     setarrQuestion(JSON.parse(storageQuestion));
   }, []);

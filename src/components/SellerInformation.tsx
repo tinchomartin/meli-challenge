@@ -6,7 +6,7 @@ import {BsStopwatch} from "react-icons/bs";
 import {HiCheckCircle} from "react-icons/hi";
 
 const SellerInformation = () => {
-  const ListProps: CSS.Properties = {
+  const ListProps: CSSProperties = {
     borderLeft: "6px white solid",
     height: "8px",
     width: "20%",

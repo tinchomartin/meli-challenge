@@ -6,17 +6,17 @@ import "swiper/css/navigation";
 import {Navigation} from "swiper";
 
 import "swiper/css";
-import {swiperBtn} from "./../../style.module.css";
+import style from "./../../style.module.css";
 
-const SellerPublications = (props) => {
+const SellerPublications = (props: any) => {
   const {publications} = props;
 
   useEffect(() => {
     const swipperPrev = document.querySelector(".swiper-button-prev");
     const swipperNext = document.querySelector(".swiper-button-next");
 
-    swipperPrev?.classList.add(swiperBtn);
-    swipperNext?.classList.add(swiperBtn);
+    swipperPrev?.classList.add(style.swiperBtn);
+    swipperNext?.classList.add(style.swiperBtn);
   }, []);
 
   return (
@@ -40,7 +40,7 @@ const SellerPublications = (props) => {
           spaceBetween={3}
         >
           {publications &&
-            publications.map((item, i) => {
+            publications.map((item: any, i: number) => {
               return (
                 <SwiperSlide key={i}>
                   <Stack

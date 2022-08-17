@@ -4,7 +4,7 @@ import {Stack, Text, StackDivider} from "@chakra-ui/react";
 import {ProductDescriptionHc} from "./ProductDescriptionHc";
 import {Qa} from "./Qa";
 
-const ProductDescription = (props) => {
+const ProductDescription = (props: any) => {
   const {description} = props;
 
   return (
