@@ -8,8 +8,8 @@ import HomeScreen from "./screens/Home";
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route exact component={HomeScreen} path="/" />
-      <Route component={DetailsScreen} path="/:productId" />
+      <Route exact component={DetailsScreen} path="/" />
+      {/* <Route component={DetailsScreen} path="/:productId" /> */}
       <Redirect to="/" />
     </Switch>
   );
