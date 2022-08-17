@@ -23,8 +23,7 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
   };
 
   return (
-    <Stack background="white" borderRadius="md" direction="row">
-      {/* maxW="container.xl" */}
+    <Stack background="white" borderRadius="md" direction="row" paddingBottom="30px">
       <Stack padding={4}>
         <Stack divider={<StackDivider borderColor="gray.300" marginLeft="30px !important" />}>
           <Stack direction="row">
@@ -76,16 +75,18 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
           <ProductDescription description={product.attributes} />
         </Stack>
       </Stack>
-      <Stack>
-        <Stack direction="row">
-          <ProductDetails product={product} />
-        </Stack>
-        <Stack direction="row">
-          <SellerInformation />
-        </Stack>
-        <Stack direction="row">
-          <PurchaseInformation />
-        </Stack>
+      <Stack position="relative">
+        <Box position="sticky" top="12px">
+          <Stack direction="row">
+            <ProductDetails product={product} />
+          </Stack>
+          <Stack direction="row">
+            <SellerInformation />
+          </Stack>
+          <Stack direction="row">
+            <PurchaseInformation />
+          </Stack>
+        </Box>
       </Stack>
     </Stack>
   );

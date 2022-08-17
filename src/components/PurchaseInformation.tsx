@@ -88,6 +88,7 @@ export const PurchaseInformation = () => {
             display="flex"
             justifyContent="space-between"
             listStyleType="none"
+            marginBottom="20px !important"
             paddingRight="43px"
           >
             <ListItem>
@@ -101,6 +102,39 @@ export const PurchaseInformation = () => {
             </ListItem>
             <ListItem>
               <Image src="https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg" />
+            </ListItem>
+          </UnorderedList>
+
+          <Text>Tarjetas de débito</Text>
+
+          <UnorderedList
+            display="flex"
+            justifyContent="space-between"
+            listStyleType="none"
+            paddingRight="13px"
+          >
+            <ListItem>
+              <Image src="https://http2.mlstatic.com/storage/logos-api-admin/312238e0-571b-11e8-823a-758d95db88db-m.svg" />
+            </ListItem>
+            <ListItem>
+              <Image src="https://http2.mlstatic.com/storage/logos-api-admin/ce454480-445f-11eb-bf78-3b1ee7bf744c-m.svg" />
+            </ListItem>
+            <ListItem>
+              <Image src="https://http2.mlstatic.com/storage/logos-api-admin/157dce60-571b-11e8-95d8-631c1a9a92a9-m.svg" />
+            </ListItem>
+            <ListItem>
+              <Image src="https://http2.mlstatic.com/storage/logos-api-admin/cb0af1c0-f3be-11eb-8e0d-6f4af49bf82e-m.svg" />
+            </ListItem>
+          </UnorderedList>
+
+          <Text>Efectivo</Text>
+
+          <UnorderedList display="flex" justifyContent="flex-start" listStyleType="none">
+            <ListItem paddingRight="25px">
+              <Image src="https://http2.mlstatic.com/storage/logos-api-admin/fec5f230-06ee-11ea-8e1e-273366cc763d-m.svg" />
+            </ListItem>
+            <ListItem>
+              <Image src="https://http2.mlstatic.com/storage/logos-api-admin/443c34d0-571b-11e8-823a-758d95db88db-m.svg" />
             </ListItem>
           </UnorderedList>
         </Stack>
