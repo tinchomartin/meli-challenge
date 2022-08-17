@@ -1,5 +1,6 @@
 import React from "react";
-import {Link, Text, Stack, Box, List, ListItem, UnorderedList, Container} from "@chakra-ui/react";
+import {Text, Stack, Box, List, ListItem, UnorderedList, Container} from "@chakra-ui/react";
+import {Link} from "react-router-dom";
 
 const HomeScreen: React.FC = () => {
   return (
@@ -38,7 +39,7 @@ const HomeScreen: React.FC = () => {
             <Text> Juegos y Juguetes &gt; Peluches </Text>
           </Stack>
           <Stack direction="row">
-            <Link href="/productId">Ver página de detalle de producto</Link>
+            <Link to="/productId">Ver página de detalle de producto</Link>
           </Stack>
         </Container>
       </Box>
