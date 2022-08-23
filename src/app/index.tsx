@@ -5,7 +5,8 @@ import {FiPrinter} from "react-icons/fi";
 import {GoLocation} from "react-icons/go";
 import {IoCartOutline} from "react-icons/io5";
 
-import Logo from "./../../public/assets/logo.png";
+import Logo from "/assets/logo.png";
+
 import Routes from "./routes";
 
 const App: React.FC = () => {
