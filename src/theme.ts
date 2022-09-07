@@ -1,6 +1,11 @@
 import {extendTheme, theme} from "@chakra-ui/react";
 
 export default extendTheme({
+  config: {
+    initialColorMode: "light",
+    useSystemColorMode: false,
+  },
+
   styles: {
     global: {
       body: {
@@ -36,8 +41,8 @@ export default extendTheme({
     },
   },
   fonts: {
-    body: "Proxima Nova, -apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif",
-    heading: "Proxima Nova, -apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif",
+    body: "Proxima Nova",
+    heading: "Proxima Nova",
   },
   components: {
     Link: {
