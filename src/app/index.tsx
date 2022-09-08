@@ -15,7 +15,7 @@ const App: React.FC = () => {
           <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between">
               <Stack direction="row" flex={1} spacing={12}>
-                <Image objectFit="contain" src="/assets/logo.png" />
+                <Image objectFit="contain" src="./assets/logo.png" />
                 <Stack
                   alignItems="center"
                   backgroundColor="white"
