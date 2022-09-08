@@ -5,8 +5,6 @@ import {FiPrinter} from "react-icons/fi";
 import {GoLocation} from "react-icons/go";
 import {IoCartOutline} from "react-icons/io5";
 
-import Logo from "/public/assets/logo.png";
-
 import Routes from "./routes";
 
 const App: React.FC = () => {
@@ -17,7 +15,7 @@ const App: React.FC = () => {
           <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between">
               <Stack direction="row" flex={1} spacing={12}>
-                <Image objectFit="contain" src={Logo} />
+                <Image objectFit="contain" src="/assets/logo.png" />
                 <Stack
                   alignItems="center"
                   backgroundColor="white"
