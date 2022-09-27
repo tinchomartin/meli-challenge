@@ -87,16 +87,18 @@ const SellerInformation = () => {
 
         <Stack position="relative" width="33%">
           <Icon alignSelf="center" as={IoChatboxOutline} />
-
-          <Icon as={HiCheckCircle} color="#00a650" left="35px" position="absolute" />
-
+          <Box left="45px" position="absolute" top="-10px">
+            <Icon as={HiCheckCircle} color="#00a650" left="35px" />
+          </Box>
           <Text fontSize="xs" fontWeight="light">
             Brinda buena atención
           </Text>
         </Stack>
         <Stack position="relative" width="33%">
           <Icon alignSelf="center" as={BsStopwatch} />
-          <Icon as={HiCheckCircle} color="#00a650" left="53px" position="absolute" top="1px" />
+          <Box left="45px" position="absolute" top="-10px">
+            <Icon as={HiCheckCircle} color="#00a650" />
+          </Box>
           <Text fontSize="xs" fontWeight="light">
             Despacha sus productos a tiempo
           </Text>
