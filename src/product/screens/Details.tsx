@@ -1,5 +1,5 @@
+import React, {CSSProperties} from "react";
 import {Box, Stack, Image, StackDivider} from "@chakra-ui/react";
-import React, {useState} from "react";
 
 import {Product} from "../types";
 import mock from "../mock";
@@ -8,6 +8,7 @@ import SellerPublications from "../../components/SellerPublications";
 import SellerInformation from "../../components/SellerInformation";
 import ProductDescription from "../../components/ProductDescription";
 import PurchaseInformation from "../../components/PurchaseInformation";
+import HoverPicture from "../../components/HoverPicture";
 
 interface Props {
   product: Product;
@@ -15,12 +16,41 @@ interface Props {
 
 const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
   const [fullImg, setFullImg] = React.useState<string>("");
+  const [hoverPic, setHoverPic] = React.useState<boolean>(false);
+  const ZoomProps: CSSProperties = {
+    backgroundPosition: "50% 50%",
+    backgroundImage: `url(${fullImg})`,
+  };
+  const [zoomImg, setZoom] = React.useState<any>(ZoomProps);
 
   const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
     const {src} = e.target as HTMLImageElement;
 
     setFullImg(src);
   };
+
+  const handleOut = () => {
+    setHoverPic(false);
+  };
+
+  const handleOver = () => {
+    setHoverPic(true);
+  };
+
+  const handleMouseMove = (e: any) => {
+    const {left, top, width, height} = e.target.getBoundingClientRect();
+    const x = ((e.pageX - left) / width) * 110;
+    const y = ((e.pageY - top) / height) * 110;
+
+    setZoom({
+      backgroundPosition: `${x}% ${y}%`,
+      backgroundImage: `url(${fullImg})`,
+      backgroundColor: "white",
+      backgroundSize: "200% 200%",
+    });
+  };
+
+  console.log(fullImg);
 
   return (
     <Stack background="white" borderRadius="md" direction="row" paddingBottom="30px">
@@ -58,6 +88,7 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                 height="auto"
                 margin={["24px 0 0 0 !important"]}
                 padding="16px"
+                position="relative"
                 width="700px"
               >
                 <Image
@@ -66,6 +97,9 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
                   objectFit="contain"
                   src={fullImg ? fullImg : product.pictures[0].secure_url}
                   width="100%"
+                  onMouseMove={handleMouseMove}
+                  onMouseOut={handleOut}
+                  onMouseOver={handleOver}
                 />
               </Box>
             </Stack>
@@ -78,7 +112,11 @@ const DetailsScreen: React.FC<Props> = ({product = mock.product}) => {
       <Stack position="relative">
         <Box position="sticky" top="12px">
           <Stack direction="row">
-            <ProductDetails product={product} />
+            {hoverPic === false ? (
+              <ProductDetails product={product} />
+            ) : (
+              <HoverPicture style={zoomImg} />
+            )}
           </Stack>
           <Stack direction="row">
             <SellerInformation />
